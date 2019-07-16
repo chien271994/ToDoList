@@ -1,38 +1,9 @@
 import React, { Component } from "react";
 import TaskItem from "./TaskItem";
 class TaskList extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			filterName: "",
-			filterStatus:-1
-		};
-	}
-	onChange = e => {
-		var target = e.target;
-		var { name, value } = target;
-		this.props.onFilter(
-			name === "filterName" ? value : this.state.filterName,
-			name === "filterValue" ? value : this.state.filterStatus
-		);
-		this.setState({
-			[name]:value
-		});
-	};
+	
 	render() {
-		var { tasks } = this.props;
-		var elmTasks = tasks.map((task, index) => {
-			return (
-				<TaskItem
-					key={task.id}
-					index={index}
-					task={task}
-					onUpdateStatus={this.props.onUpdateStatus}
-					onDelete={this.props.onDelete}
-					onUpdate={this.props.onUpdate}
-				/>
-			);
-		});
+		
 		return (
 			<table className="table table-bordered table-hover mt-15">
 				<thead>
@@ -51,16 +22,16 @@ class TaskList extends Component {
 								type="text"
 								className="form-control"
 								name="filterName"
-								onChange={this.onChange}
-								value={this.state.filterName}
+								// onChange={this.onChange}
+								// value={this.state.filterName}
 							/>
 						</td>
 						<td>
 							<select
 								className="form-control"
 								name="filterStatus"
-								onChange={this.onChange}
-								value={this.state.filterStatus}
+								// onChange={this.onChange}
+								// value={this.state.filterStatus}
 							>
 								<option value="-1">Tất Cả</option>
 								<option value="0">Ẩn</option>
@@ -69,8 +40,8 @@ class TaskList extends Component {
 						</td>
 						<td />
 					</tr>
-
-					{elmTasks}
+                    <TaskItem/>
+					{/* {elmTasks} */}
 				</tbody>
 			</table>
 		);
