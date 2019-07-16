@@ -1,4 +1,4 @@
-// this.setState là tạo các đối tượng,ko được dùng dấu bằng =;
+
 /* Sơ đồ Component
     +)App
     ++)TaskForm ==> Component tương ứng với botton Thêm Công Việc
@@ -13,7 +13,6 @@ import "./App.css";
 import TaskForm from "./components/TaskForm";
 import TaskControl from "./components/TaskControl";
 import TaskList from "./components/TaskList";
-//import { parse } from "querystring";
 class App extends Component {
 	constructor(props) {
 		super(props);
